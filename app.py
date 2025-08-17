@@ -6,13 +6,11 @@ from agno.agent import Agent
 from agno.tools.serpapi import SerpApiTools
 from agno.models.google import Gemini
 from datetime import datetime
-from dotenv import load_dotenv
-
-# ----------------- Load API keys -----------------
-load_dotenv()
-SERPAPI_KEY = os.getenv("SERPAPI_KEY")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# ----------------- Load API keys from Streamlit secrets -----------------
+SERPAPI_KEY = st.secrets["SERPAPI_KEY"]
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+
 
 # ----------------- Streamlit UI -----------------
 st.set_page_config(page_title="🌍 AI Travel Planner", layout="wide")
